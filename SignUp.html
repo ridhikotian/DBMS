@@ -5,23 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Playwrite+FR+Moderne+Guides&display=swap" rel="stylesheet">
     <style>
         body {
+            background-image:url("dog.jpg");
+            background-repeat: no-repeat ;
+            background-size: cover;
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
             
+            margin: 0;
+            position: relative;
         }
 
         .container {
-            background-color: rgb(255, 255, 255);
+    
+
+            background-color: rgba(79, 52, 29, 0.642);
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(242, 239, 239, 0.314);
             width: 300px;
         }
 
@@ -37,19 +46,14 @@
         label {
             display: block;
             margin-bottom: 5px;
-            border-radius: 25px;
-          
         }
 
         input {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            border-radius: 10px;
-            border: 2px solid #000000;
- 
+            border: 1px solid #e9e6e6;
+            border-radius: 15px;
         }
 
         button {
@@ -57,13 +61,13 @@
             padding: 10px;
             background-color: #5cb85c;
             border: none;
-            color: white;
-            border-radius: 4px;
+            color: rgb(255, 255, 255);
+            border-radius: 17px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #4cae4c;
+            background-color: #337733;
         }
 
         #message {
@@ -78,7 +82,7 @@
 
         .password-hint {
             font-size: 0.9em;
-            color: #666;
+            color: #d7d7d7;
             margin-top: 5px;
             display: none;
         }
@@ -106,65 +110,79 @@
             width: 100%;
             background-color: green;
         }
-        .tacbox {
-  display:block;
-  padding: 1em;
-  margin: 2em;
-  border: 1px solid #ffffff;
-  background-color: #fffbfb;
-  max-width: 800px;
-}
+        .nav-bar p{
+        font-family: "Chewy",system-ui;
+  font-weight: 400;
+  font-style: normal;
+        position: absolute;
+        top:0px;
+        left:16px;
+        font-size: 30px;
+        padding-top:0px;
+     }
+     .Nav-bar p{
+        font-family: "Playpen Sans",system-ui;
+  font-weight: 400;
+  font-style: normal;
+        position: absolute;
+        top:0px;
+        right:16px;
+        font-size: 30px;
+        padding-top:0px;
+     }
 
 
+
+
+
+
+ 
     </style>
 </head>
 
 <body>
-    <h1>Happy Tails</h1>
-    
+    <div class="nav-bar">
+       <p>Happy Tails</p> 
+    </div>
+    <div class="Nav-bar">
+        <p>Home</p> 
+     </div>
+ 
     <div class="container">
-        <h1>Happy Tails</h1>
-    
-        <h2>Create Your Account</h2>
+        <h2>Create an account</h2>
         <br>
         <form id="signupForm">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email"  placeholder="Enter your email"required>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password"required>
+                <input type="password" id="password" name="password" required>
                 <div class="password-hint" id="passwordHint">
-                    Password must be at least 8 characters long, and include at
-                    least one uppercase letter, one lowercase letter, one
-                    number, and one special character.
+                    <ul>
+                    <li>Password must be at least 8 characters long</li> 
+                    <li>Include at least one uppercase letter & one lowercase letter</li> 
+                    <li>Include at least one number</li> 
+                    <li>Include at least one special character.</li> 
+                    </ul>
                 </div>
                 <span id="passwordError" class="error"></span>
                 <div class="password-strength" id="passwordStrength"></div>
             </div>
             <br>
-
-             
             <button type="submit">SIGN UP</button>
-        </form>
-        <p id="message"></p>
-
-            <div class="tacbox">
-                <input id="checkbox" type="checkbox" />
-                <label for="checkbox"><center> I accept the <a href="#">Terms of Services</a> & <a href="#">Privacy Policy</a>.</center> </label>
-              </div>
-            <p><center>Already have an account? <a href="#">Log In</a></center> </p>    
-            
-            
+            <br>
+            <br>
+            <br>
+            <center> Already have an account? <a href="SignIn.html ">Sign In</a></center>
         </form>
         <p id="message"></p>
     </div>
-    
     <script>
         document.getElementById('signupForm').addEventListener('submit', function (event) {
             event.preventDefault();
@@ -172,10 +190,10 @@
             let username = document.getElementById('username').value;
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
-            let confirmPassword = document.getElementById('confirmPassword').value;
+          
             let message = document.getElementById('message');
             let passwordError = document.getElementById('passwordError');
-            
+            let confirmPasswordError = document.getElementById('confirmPasswordError');
 
             let passwordValid = validatePassword(password);
             if (!passwordValid) {
@@ -185,12 +203,7 @@
                 passwordError.textContent = '';
             }
 
-            if (password !== confirmPassword) {
-                confirmPasswordError.textContent = 'Passwords do not match!';
-                return;
-            } else {
-                confirmPasswordError.textContent = '';
-            }
+            
 
             // Here you can add code to send the form data to the server
 
